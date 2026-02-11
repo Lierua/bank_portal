@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --white: #f5f3ef;
+  --black: #0d1f2d;
+  --prime: #063a69;
+  --light-prime: #175893;
+  --contrast: #e56e15;
+  --light-contrast: #c94b38;
+  --content-width: 1440px;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  background: var(--white);
+  color: var(--black);
+  & > div {
+    display: grid;
+    grid-template-columns: 1fr [content] minmax(0, var(--content-width)) 1fr;
+    & > * {
+      grid-column: content;
+    }
+  }
+  h1 {
+    font-weight: 400;
+    font-size: 38px;
+  }
+  h2 {
+    font-weight: 400;
+    font-size: 24px;
+  }
+  nav {
+    li {
+      font-weight: 400;
+      font-size: 24px;
+    }
+  }
+  p {
+    font-size: 15;
+  }
+  button {
+    font-size: 18px;
   }
 }
+.nav-banner {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.body-banner {
+  display: grid;
+  grid-template-columns: 70px 140px 1fr;
+}
+.banner-rows {
+  display: grid;
+  grid-template-rows: 20px 30px 30px 1fr;
+  gap: 20px;
+}
+
+.full-bleed {
+  grid-column: 1/-1;
 }
