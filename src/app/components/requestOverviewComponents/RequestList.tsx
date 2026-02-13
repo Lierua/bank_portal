@@ -2,6 +2,7 @@ type Request = {
   name: string;
   amount: number;
   forWhat: string;
+  location: string;
   status: "Godkendt" | "Afslået" | "Pending";
   date: string;
 };
@@ -12,6 +13,7 @@ const RequestList = () => {
       name: "Oliver Alexander Ladekarl Bengtsson",
       amount: 2_500_000,
       forWhat: "Andelbolig",
+      location: "Fredensborg",
       status: "Godkendt",
       date: "12. feb.",
     },
@@ -19,6 +21,7 @@ const RequestList = () => {
       name: "Mads Kristensen",
       amount: 1_250_000,
       forWhat: "Ejerlejlighed",
+      location: "Aarhus",
       status: "Pending",
       date: "15. feb.",
     },
@@ -26,6 +29,7 @@ const RequestList = () => {
       name: "Sofie Rasmussen",
       amount: 3_100_000,
       forWhat: "Villa",
+      location: "København",
       status: "Afslået",
       date: "18. feb.",
     },
@@ -33,6 +37,7 @@ const RequestList = () => {
       name: "Andreas Holm",
       amount: 950_000,
       forWhat: "Kollegieværelse",
+      location: "København",
       status: "Godkendt",
       date: "20. feb.",
     },
@@ -55,13 +60,13 @@ const RequestList = () => {
     };
 
   return (
-    <div className="grid grid-cols-[300px_180px_200px_1fr_200px_70px] pt-3 grid-rows-[40px_1fr]">
+    <div className="grid grid-cols-[300px_180px_180px_1fr_200px_70px] pt-3 grid-rows-[40px_1fr]">
       {/* Header */}
       <div className="col-span-full grid grid-cols-subgrid border-(--black)/10 border-b-2 pl-10 h-[40px] text-(--black)/60">
         <h3>Kunde</h3>
         <h3>Lånebeløb</h3>
         <h3>Lån for</h3>
-        <h3></h3>
+        <h3>Område</h3>
         <h3>Status</h3>
         <h3>Dato</h3>
       </div>
@@ -74,8 +79,8 @@ const RequestList = () => {
           return (
             <div
               key={index}
-              className="hover:bg-gray-100 transition-all duration-200 ease-in
-              col-span-full grid grid-cols-[260px_180px_200px_1fr_200px_70px]
+              className="hover:bg-gray-200 transition-all duration-200 ease-in
+              col-span-full grid grid-cols-[260px_180px_180px_1fr_200px_70px]
                          pl-10 h-[40px] shrink-0 items-center"
             >
               {/* Name */}
@@ -91,7 +96,7 @@ const RequestList = () => {
               {/* For what */}
               <p>{request.forWhat}</p>
 
-              <p></p>
+              <p>{request.location}</p>
 
               {/* Status */}
               <div className="flex items-center gap-2">

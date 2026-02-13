@@ -11,7 +11,7 @@ const RequestContent = () => {
   const [overview, setOverview] = useState("Ansøgninger");
 
   return (
-    <div className="body-banner rounded-tl-lg overflow-hidden h-[88.95vh] lk-box-shadow">
+    <div className="body-banner rounded-tl-lg overflow-hidden h-[90vh] lk-box-shadow">
       <div className="bg-(--prime) banner-rows lk-box-shadow z-20">
         <FaRegFileAlt
           onClick={() => setOverview("Ansøgninger")}
