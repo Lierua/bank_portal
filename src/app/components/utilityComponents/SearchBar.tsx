@@ -1,27 +1,17 @@
 "use client";
 
-import { useState } from "react";
-
-type SearchBarProps = {
-  onSearch?: (value: string) => void;
+type Props = {
+  search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const SearchBar = ({ onSearch }: SearchBarProps) => {
-  const [value, setValue] = useState("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
-
-    setValue(newValue);
-    onSearch?.(newValue);
-  };
-
+const SearchBar = ({ search, setSearch }: Props) => {
   return (
     <div className="w-full max-w-sm">
       <input
         type="text"
-        value={value}
-        onChange={handleChange}
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
         placeholder="Søg"
         className="
           w-full rounded-full border-gray-300

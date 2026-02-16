@@ -3,13 +3,18 @@
 import { useState, useRef } from "react";
 
 import { IoIosLogOut } from "react-icons/io";
-import { BsPerson } from "react-icons/bs";
+import { IoPersonCircleOutline } from "react-icons/io5";
 import { FiCalendar } from "react-icons/fi";
 import { TbMapSearch } from "react-icons/tb";
 
 import SearchBar from "./SearchBar";
 
-const NavComponent = () => {
+type Props = {
+  search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const NavComponent = ({ search, setSearch }: Props) => {
   const [selectedDate, setSelectedDate] = useState("");
   const [showLocations, setShowLocations] = useState(false);
   const [location, setLocation] = useState("");
@@ -46,7 +51,7 @@ const NavComponent = () => {
         {/* Left side */}
         <div className="flex items-center gap-8 relative">
           <div className="w-[250px]">
-            <SearchBar />
+            <SearchBar search={search} setSearch={setSearch} />
           </div>
 
           {/* Hidden Date Input */}
@@ -75,7 +80,7 @@ const NavComponent = () => {
 
             {/* Dropdown */}
             {showLocations && (
-              <div className="absolute left-0 mt-2 w-48 bg-white border-4 border-(--prime) rounded-[6px] shadow-lg z-50">
+              <div className="absolute left-0 mt-2 w-48 bg-white border-2 border-(--prime) rounded-[6px] shadow-lg z-50">
                 {locations.map((loc) => (
                   <button
                     key={loc}
@@ -83,7 +88,7 @@ const NavComponent = () => {
                       setLocation(loc);
                       setShowLocations(false);
                     }}
-                    className="block rounded-[6px] w-full text-left px-4 py-2 hover:bg-gray-200 transition"
+                    className="block rounded-[6px] w-full text-left px-4 py-2 hover:bg-gray-200 transition font-semibold"
                   >
                     {loc}
                   </button>
@@ -95,8 +100,7 @@ const NavComponent = () => {
 
         <div className="flex items-center gap-4">
           <h3 className="font-bold">Steve Minecraft</h3>
-
-          <BsPerson className="text-(--black) text-5xl h-[42px]" />
+          <IoPersonCircleOutline className="text-(--black) text-5xl h-[42px]" />
 
           <IoIosLogOut
             title="Log ud"
