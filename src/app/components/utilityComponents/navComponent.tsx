@@ -99,7 +99,7 @@ const NavComponent = ({ search, setSearch }: Props) => {
         </div>
 
         <div className="flex items-center gap-4">
-          <h3 className="font-bold">Steve Minecraft</h3>
+          <h3 className="font-bold">Line Christiansen</h3>
           <IoPersonCircleOutline className="text-(--black) text-5xl h-[42px]" />
 
           <IoIosLogOut
